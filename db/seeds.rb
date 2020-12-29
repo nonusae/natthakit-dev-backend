@@ -7,15 +7,37 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-title = ['Test project1', 'Test project2']
-description = [
-  'Description for project 1',
-  'Description for project 2'
-]
+Portfolio.destroy_all
 
-title.each_with_index do |t, index|
-  Portfolio.create!(
-    title: t,
-    description: description[index]
-  )
-end
+Portfolio.create!(
+  title: 'Fake task 1',
+  description: Faker::Lorem.paragraph,
+  company: Faker::Company.name,
+  company_website: 'https://www.google.com',
+  location: 'Bangkok',
+  job_title: 'Developer',
+  start_date: '10/12/2018',
+  end_date: '10/01/2019',
+)
+
+Portfolio.create!(
+  title: 'Fake task 2',
+  description: Faker::Lorem.paragraph,
+  company: Faker::Company.name,
+  company_website: 'https://www.google.com',
+  location: 'Bangkok',
+  job_title: 'Senior Developer',
+  start_date: '10/12/2019',
+  end_date: '10/01/2020',
+)
+
+Portfolio.create!(
+  title: 'Fake task 3',
+  description: Faker::Lorem.paragraph,
+  company: Faker::Company.name,
+  company_website: 'https://www.google.com',
+  location: 'Bangkok',
+  job_title: 'Senior Software Engineer',
+  start_date: '10/12/2020',
+  end_date: '10/01/2021',
+)
