@@ -16,8 +16,14 @@ ActiveRecord::Schema.define(version: 2020_12_29_160116) do
   enable_extension "plpgsql"
 
   create_table "portfolios", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
+    t.string "title", null: false
+    t.string "company", null: false
+    t.string "company_website", null: false
+    t.string "location", null: false
+    t.string "job_title", null: false
+    t.string "description", null: false
+    t.date "start_date", null: false
+    t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

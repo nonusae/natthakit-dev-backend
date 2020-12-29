@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+title = ['Test project1', 'Test project2']
+description = [
+  'Description for project 1',
+  'Description for project 2'
+]
+
+title.each_with_index do |t, index|
+  Portfolio.create!(
+    title: t,
+    description: description[index]
+  )
+end
