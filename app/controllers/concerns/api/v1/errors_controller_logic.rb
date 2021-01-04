@@ -17,6 +17,8 @@ module Api
         rescue_from StandardError, with: :serialize_internal_error_error
         rescue_from ActiveRecord::RecordNotFound,
                     with: :serialize_not_found_error
+        rescue_from ActiveRecord::RecordInvalid,
+                    with: :serialize_unprocessable_entity_error
         rescue_from ActionController::ParameterMissing,
                     with: :serialize_parameter_missing_error
       end
@@ -40,6 +42,7 @@ module Api
       end
 
       def serialize_active_record_errors(record)
+        binding.pry
         errors.concat(record.errors.messages.map do |field, errors_messages|
           errors_messages.map do |error_message|
             RescuedError.new(

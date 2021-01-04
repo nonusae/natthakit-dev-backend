@@ -17,10 +17,8 @@ module Api
 
       def create
         @portfolio = Portfolio.new(portfolio_params)
-        if @portfolio.save
+        if @portfolio.save!
           render json: PortfolioSerializer.new(@portfolio)
-        else
-          render json: {errors: @portfolio.errors}
         end
       end
 
