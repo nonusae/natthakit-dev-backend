@@ -20,7 +20,7 @@ module Api
         if @portfolio.save
           render json: PortfolioSerializer.new(@portfolio)
         else
-          render json: {ok: 'false', errors: @portfolio.errors}
+          render json: {errors: @portfolio.errors}
         end
       end
 
