@@ -27,7 +27,16 @@ module Api
       private
 
       def portfolio_params
-        params.require(:portfolio).permit(:title, :company, :location, :description)
+        params.permit(
+          :title,
+          :company,
+          :location,
+          :description,
+          :company_website,
+          :job_title,
+          :start_date,
+          :end_date
+        )
       end
     end
   end
