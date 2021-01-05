@@ -1,0 +1,31 @@
+version: '2'
+plugins:
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+          mass_threshold: 46
+        ruby:
+          # Inherit the default (this line is required for some reason 🤨)
+          mass_threshold:
+
+exclude_patterns:
+  # Code Climate defaults:
+  - 'config/'
+  - 'db/'
+  - 'dist/'
+  - 'features/'
+  - '**/node_modules/'
+  - 'script/'
+  - '**/spec/'
+  - '**/test/'
+  - '**/tests/'
+  - 'Tests/'
+  - '**/vendor/'
+  - '**/*_test.go'
+  - '**/*.d.ts'
+  # # Expanded exclusions:
+  # - 'babel.config.js'
+  # - 'app/workers/shrine_jobs/promote.rb' # Shrine's implementation
+  # - 'app/javascript/packs/pdf_viewer.js' # Built from mozilla/pdf.js lib
