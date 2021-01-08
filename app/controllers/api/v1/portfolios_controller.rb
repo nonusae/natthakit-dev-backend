@@ -21,7 +21,6 @@ module Api
       end
 
       def update
-        authorize(@portfolio)
         @portfolio.attributes = portfolio_params
         @portfolio.save!
         render json: PortfolioSerializer.new(@portfolio)
@@ -35,7 +34,7 @@ module Api
       private
 
       def set_portfolio
-        @portfolio ||= Portfolio.find(params[:id])
+        @portfolio ||= authorize(Portfolio.find(params[:id]))
       end
 
       def portfolio_params
