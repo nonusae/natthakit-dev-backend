@@ -1,7 +1,7 @@
 module Api
   module V1
     class PortfoliosController < SecuredController
-      before_action :set_portfolio, except: [:index]
+      before_action :set_portfolio, except: [:index, :create]
       include ErrorsControllerLogic
 
       skip_before_action :authorize_request, only: [:index, :show]
@@ -16,6 +16,7 @@ module Api
       end
 
       def create
+        @portfolio = authorize(Portfolio.new(portfolio_params))
         @portfolio.save!
         render json: PortfolioSerializer.new(@portfolio)
       end
