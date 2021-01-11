@@ -5,4 +5,5 @@ Rails.application.routes.draw do
       resources :portfolios
     end
   end
+  get '*other', to: 'home#index'
 end
