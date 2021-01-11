@@ -1,9 +1,9 @@
 module Api
   module V1
     class PortfoliosController < SecuredController
-      before_action :set_portfolio, except: [:index, :create]
       include ErrorsControllerLogic
 
+      before_action :set_portfolio, except: [:index, :create]
       skip_before_action :authorize_request, only: [:index, :show]
 
       def index
